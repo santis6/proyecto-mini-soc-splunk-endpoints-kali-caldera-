@@ -135,7 +135,7 @@ Red: 192.168.56.0/24 (VirtualBox Internal Network)
 
     -   Scripts de automatización
 
-## 4\. Kali Linux (Red Team Manual)
+## 4\. Kali Linux (Red Team Manual) 
 
 -   Versión: 2023.4
 
@@ -168,12 +168,12 @@ Red: 192.168.56.0/24 (VirtualBox Internal Network)
 
 ## Fase 3: Simulación (Variable)
 
-
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Kali Linux    │    │  MITRE Caldera  │    │    Manuales     │
+```
+┌─────────────────┐    ┌─────────────────┐     ┌─────────────────┐
+│   Kali Linux    │    │  MITRE Caldera  │     │    Manuales     │
 │  (Ataques       │───▶│  (Campañas      │───▶│    (Scripts     │
-│   manuales)     │    │   automatizadas)│    │    personalizados)
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+│   manuales)     │    │   automatizadas)│     │  personalizados)│
+└─────────────────┘    └─────────────────┘     └─────────────────┘
          │                       │                       │
          └──────────┬────────────┴────────────┬──────────┘
                     │                         │
@@ -188,7 +188,7 @@ Red: 192.168.56.0/24 (VirtualBox Internal Network)
                           │ (Análisis y  │
                           │  Detección)  │
                           └──────────────┘
-
+```
 ## Fase 4: Análisis y Respuesta
 
 
@@ -207,7 +207,7 @@ Red: 192.168.56.0/24 (VirtualBox Internal Network)
 * * * * *
 
 # 📦 Requisitos
--------------
+---
 
 ## Requisitos Mínimos de Hardware
 
@@ -255,7 +255,7 @@ Red: 192.168.56.0/24 (VirtualBox Internal Network)
 
 ## Scripts de Automatización
 
-
+```
 deployment/
 ├── scripts/
 │   ├── 01-setup-network.sh/ps1    # Configura red VirtualBox
@@ -267,8 +267,8 @@ deployment/
     ├── splunk/                    # Configuraciones de Splunk
     ├── caldera/                   # Campañas de Caldera
     └── endpoints/                 # Scripts para endpoints
-
-### Dashboards Pre-configurados
+```
+## Dashboards Pre-configurados
 
 1.  Security Overview Dashboard: Vista general del SOC
 
@@ -280,7 +280,7 @@ deployment/
 
 5.  MITRE ATT&CK Matrix: Mapeo de técnicas detectadas
 
-### Recursos Adicionales
+## Recursos Adicionales
 
 -   Cheatsheets: Comandos SPL, PowerShell, Linux
 
@@ -295,19 +295,21 @@ deployment/
 # ⚡ Inicio Rápido
 ---------------
 
-bash
-
 ## 1. Clonar el repositorio
+```
 git clone https://github.com/tu-usuario/mini-soc-lab.git
 cd mini-soc-lab
-
+```
 ## 2. Ejecutar despliegue automático (Linux/macOS)
+```
 chmod +x deploy.sh
 sudo ./deploy.sh
-
+```
 ## 3. O despliegue manual (Windows)
-powershell -ExecutionPolicy Bypass -File deploy.ps1
 
+```
+powershell -ExecutionPolicy Bypass -File deploy.ps1
+```
 Acceso post-instalación:
 
 -   🔗 Splunk: [https://192.168.56.40:8000](https://192.168.56.40:8000/) (admin/changeme)
