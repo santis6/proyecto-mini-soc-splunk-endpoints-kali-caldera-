@@ -158,7 +158,9 @@ sudo apt install -y net-tools curl wget git
 
 -   IP: `192.168.56.50/24`
 
-📸 Toma captura de: Todas las VMs creadas en VirtualBox
+<img width="529" height="427" alt="5 vms creadas" src="https://github.com/user-attachments/assets/f1c39013-e47d-4d1f-a434-31a1706e398b" />
+
+
 
 # ⚡ Paso 3: Instalar y Configurar Splunk
 --------------------------------------
@@ -170,13 +172,19 @@ sudo apt install -y net-tools curl wget git
 > Buscar la última versión desde el siguiente link y copiarlo -> [Splunk Enterprise](https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us)
 ```
 cd /tmp
+```
+```
 wget -O splunk-9.1.1.deb "URL_DESCARGA_SPLUNK"
+```
+```
 sudo dpkg -i splunk-9.1.1.deb
 ```
 
 #### Configurar inicio automático
 ```
 sudo /opt/splunk/bin/splunk start --accept-license
+```
+```
 sudo /opt/splunk/bin/splunk enable boot-start
 ```
 #### Acceso Inicial:
@@ -195,34 +203,54 @@ sudo /opt/splunk/bin/splunk enable boot-start
 
 3.  Guarda y aplica
 
-📸 Toma captura de: Dashboard de Splunk después del primer login
 
-🔄 Paso 4: Configurar Forwarders
+<img width="1359" height="767" alt="splunk primer vistazo" src="https://github.com/user-attachments/assets/f08b9f12-a699-4496-b8cc-502a20e2e773" />
+
+
+
+# 🔄 Paso 4: Configurar Forwarders
 --------------------------------
 
 ### En Windows Client:
 
-powershell
 
-# 1. Descargar Universal Forwarder
-# 2. Instalar con: msiexec.exe /i splunkforwarder.msi AGREETOLICENSE=Yes /quiet
-# 3. Configurar:
+
+#### 1. Descargar [Universal Forwarder](https://www.splunk.com/en_us/download/universal-forwarder.html?locale=en_us)
+#### 2. Instalar con: 
+```
+msiexec.exe /i splunkforwarder.msi AGREETOLICENSE=Yes /quiet
+```
+#### 3. Configurar:
+```
 & "C:\Program Files\SplunkUniversalForwarder\bin\splunk.exe" add forward-server 192.168.56.40:9997
 & "C:\Program Files\SplunkUniversalForwarder\bin\splunk.exe" add monitor "C:\Windows\System32\winevt\Logs"
+```
 
 ### En Ubuntu Client:
 
-bash
 
-# Instalar forwarder
+
+#### Descargar [Universal Forwarder](https://www.splunk.com/en_us/download/universal-forwarder.html?locale=en_us)
+#### Instalar forwarder
+```
 sudo dpkg -i splunkforwarder.deb
+```
+```
 sudo /opt/splunkforwarder/bin/splunk start --accept-license
-
-# Configurar
+```
+#### Configurar
+```
 sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.56.40:9997
+```
+```
 sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/
+```
+<img width="1359" height="640" alt="forwarder ubuntu" src="https://github.com/user-attachments/assets/b53d86fd-b7f3-4ac7-8477-2175b2f0f2ad" />
 
-📸 Toma captura de: Comandos ejecutados exitosamente
+
+<img width="1359" height="644" alt="forwarder windows" src="https://github.com/user-attachments/assets/39dd7955-0957-4202-8dfa-330de1dffb21" />
+
+
 
 🔥 Paso 5: Instalar MITRE Caldera
 ---------------------------------
